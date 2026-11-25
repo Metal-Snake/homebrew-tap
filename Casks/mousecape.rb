@@ -1,6 +1,6 @@
 cask "mousecape" do
-  version "3.4.0"
-  sha256 "72232b5e1285189b48d7d5b9df4667e879a4c25213c9d50c8e715370bdfa69f0"
+  version "3.5.0"
+  sha256 "e05620d8fde0873e9c645b6562161d36587282d91db486d3ffbb1e8f520916a7"
 
   url "https://github.com/Metal-Snake/Mousecape/releases/download/v#{version}/Mousecape-#{version}.zip"
   name "Mousecape"
