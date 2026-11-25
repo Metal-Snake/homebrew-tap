@@ -13,16 +13,18 @@ cask "mousecape" do
   end
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Mousecape.app"
   binary "#{appdir}/Mousecape.app/Contents/MacOS/mousecloak"
 
   # The app is signed with a self-signed certificate and not notarized, so Gatekeeper
   # would block it. The README asks users to run the same command by hand.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Mousecape.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Mousecape.app"],
+        writable_paths: ["Mousecape.app"],
+        writable_base:  :appdir
   end
 
   uninstall launchctl: "io.github.metal-snake.Mousecape.listener",
