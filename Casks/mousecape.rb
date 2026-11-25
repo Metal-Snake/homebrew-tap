@@ -25,6 +25,14 @@ cask "mousecape" do
         args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Mousecape.app"],
         writable_paths: ["Mousecape.app"],
         writable_base:  :appdir
+    # Homebrew runs the uninstall stanza on upgrades too, which removes the login agent.
+    # This puts it back, running the new build, if it is turned on in Mousecape's Settings.
+    run "{{appdir}}/Mousecape.app/Contents/MacOS/mousecloak",
+        args:           ["--repair-agent"],
+        must_succeed:   false,
+        print_stdout:   true,
+        writable_paths: ["Library/LaunchAgents", "Library/Logs/Mousecape"],
+        writable_base:  :home
   end
 
   uninstall launchctl: "io.github.metal-snake.Mousecape.listener",
@@ -36,5 +44,6 @@ cask "mousecape" do
   zap trash: [
     "~/Library/Application Support/Mousecape",
     "~/Library/Logs/Mousecape",
+    "~/Library/Preferences/io.github.metal-snake.Mousecape.plist",
   ]
 end
