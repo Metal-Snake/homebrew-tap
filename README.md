@@ -4,7 +4,9 @@ Homebrew casks for [Mousecape](https://github.com/Metal-Snake/Mousecape), a curs
 for macOS 14 or later on Apple silicon.
 
 ```
-brew install --cask metal-snake/tap/mousecape
+brew tap metal-snake/tap
+brew trust metal-snake/tap      # Homebrew 7 or later asks for this once
+brew install --cask mousecape
 ```
 
 This also links `mousecloak`, Mousecape's command line tool. Mousecape is signed with a
