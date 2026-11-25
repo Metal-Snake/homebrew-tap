@@ -31,13 +31,24 @@ cask "mousecape" do
         args:           ["--repair-agent"],
         must_succeed:   false,
         print_stdout:   true,
-        writable_paths: ["Library/LaunchAgents", "Library/Logs/Mousecape"],
+        writable_paths: [
+          "Library/LaunchAgents",
+          "Library/Logs/Mousecape",
+          "Library/Application Support/Mousecape/Agent",
+        ],
         writable_base:  :home
   end
 
+  # The agent runs from a copy of mousecloak outside the app.
+  uninstall_postflight_steps do
+    remove "Library/Application Support/Mousecape/Agent/io.github.metal-snake.Mousecape",
+           base:      :home,
+           recursive: true
+  end
+
+  # launchctl also removes the agent's plist. Not `delete`, which runs with sudo.
   uninstall launchctl: "io.github.metal-snake.Mousecape.listener",
-            quit:      "io.github.metal-snake.Mousecape",
-            delete:    "~/Library/LaunchAgents/io.github.metal-snake.Mousecape.listener.plist"
+            quit:      "io.github.metal-snake.Mousecape"
 
   # The preferences domain com.alexzielenski.Mousecape is shared with the original
   # Mousecape, so it is left alone.
