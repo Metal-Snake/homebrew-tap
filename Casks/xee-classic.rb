@@ -1,6 +1,6 @@
 cask "xee-classic" do
-  version "2.4.0"
-  sha256 "e5886ed7194ceb172f3e725dfcf2a807aefe081952ddb1240efbab116b91f4f8"
+  version "0.1.0"
+  sha256 "03cc972ce4c24922221021029c5c9f21c356c8f1ead23173acc628dcf33aade0"
 
   url "https://github.com/Metal-Snake/xee/releases/download/v#{version}/Xee-#{version}.zip"
   name "Xee"
