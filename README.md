@@ -4,8 +4,8 @@ Homebrew casks for two macOS apps:
 
 - [Mousecape](https://github.com/Metal-Snake/Mousecape), a cursor manager, for macOS 14 or
   later on Apple silicon.
-- [Xee](https://github.com/Metal-Snake/xee), an image viewer and browser for folders and
-  archives, for macOS 12 or later on Apple silicon and Intel.
+- [Xee](https://github.com/Metal-Snake/xee-classic), an image viewer and browser for
+  folders and archives, for macOS 12 or later on Apple silicon and Intel.
 
 ```
 brew tap metal-snake/tap

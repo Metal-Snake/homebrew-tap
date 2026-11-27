@@ -2,10 +2,10 @@ cask "xee-classic" do
   version "0.1.0"
   sha256 "03cc972ce4c24922221021029c5c9f21c356c8f1ead23173acc628dcf33aade0"
 
-  url "https://github.com/Metal-Snake/xee/releases/download/v#{version}/Xee-#{version}.zip"
+  url "https://github.com/Metal-Snake/xee-classic/releases/download/v#{version}/Xee-#{version}.zip"
   name "Xee"
   desc "Image viewer and browser for folders and archives"
-  homepage "https://github.com/Metal-Snake/xee"
+  homepage "https://github.com/Metal-Snake/xee-classic"
 
   livecheck do
     url :url
