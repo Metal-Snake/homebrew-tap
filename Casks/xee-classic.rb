@@ -1,9 +1,9 @@
 cask "xee-classic" do
-  version "0.1.0"
-  sha256 "03cc972ce4c24922221021029c5c9f21c356c8f1ead23173acc628dcf33aade0"
+  version "0.2.0"
+  sha256 "6fd91b167b5dc3dad4a1ddb2982ed5497a1687a84564707385fe82d06dda6a94"
 
-  url "https://github.com/Metal-Snake/xee-classic/releases/download/v#{version}/Xee-#{version}.zip"
-  name "Xee"
+  url "https://github.com/Metal-Snake/xee-classic/releases/download/v#{version}/Xee-Classic-#{version}.zip"
+  name "Xee Classic"
   desc "Image viewer and browser for folders and archives"
   homepage "https://github.com/Metal-Snake/xee-classic"
 
@@ -14,14 +14,14 @@ cask "xee-classic" do
 
   depends_on macos: :monterey
 
-  app "Xee.app"
+  app "Xee Classic.app"
 
   # The app is only ad-hoc signed and not notarized, so Gatekeeper would block it.
   # The README tells users who download the zip to run the same command by hand.
   postflight_steps do
     run "/usr/bin/xattr",
-        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Xee.app"],
-        writable_paths: ["Xee.app"],
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Xee Classic.app"],
+        writable_paths: ["Xee Classic.app"],
         writable_base:  :appdir
   end
 

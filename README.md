@@ -4,7 +4,7 @@ Homebrew casks for two macOS apps:
 
 - [Mousecape](https://github.com/Metal-Snake/Mousecape), a cursor manager, for macOS 14 or
   later on Apple silicon.
-- [Xee](https://github.com/Metal-Snake/xee-classic), an image viewer and browser for
+- [Xee Classic](https://github.com/Metal-Snake/xee-classic), an image viewer and browser for
   folders and archives, for macOS 12 or later on Apple silicon and Intel.
 
 ```
@@ -33,12 +33,12 @@ Mousecape (Homebrew's sandbox can't start it).
 Mousecape is free for personal, non-commercial use only; see its
 [licence](https://github.com/Metal-Snake/Mousecape/blob/master/LICENSE).
 
-## Xee
+## Xee Classic
 
 The cask is called `xee-classic` because Homebrew's own `xee` cask installs Xee³, the
 commercial successor. This is the open source Xee 2, maintained for current macOS.
 
-Xee keeps its settings under the same name as earlier Xee 2 versions, so they carry over.
+Xee Classic keeps its settings under the same name as earlier Xee 2 versions, so they carry over.
 `brew uninstall --zap --cask xee-classic` also removes those settings.
 
 Xee was released into the public domain by its author, Dag Ågren.
