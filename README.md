@@ -1,17 +1,20 @@
 # Metal-Snake/homebrew-tap
 
-Homebrew casks for two macOS apps:
+Homebrew casks for two macOS apps and a formula for one command line tool:
 
 - [Mousecape](https://github.com/Metal-Snake/Mousecape), a cursor manager, for macOS 14 or
   later on Apple silicon.
 - [Xee Classic](https://github.com/Metal-Snake/xee-classic), an image viewer and browser for
   folders and archives, for macOS 12 or later on Apple silicon and Intel.
+- [JankyBorders](https://github.com/Metal-Snake/JankyBorders), colored borders around
+  windows, with themes and dark/light mode support, for macOS 14 or later.
 
 ```
 brew tap metal-snake/tap
 brew trust metal-snake/tap      # Homebrew 7 or later asks for this once
 brew install --cask mousecape
 brew install --cask xee-classic
+brew install metal-snake/tap/jankyborders
 ```
 
 Both apps aren't notarized by Apple; the casks remove the quarantine flag after
@@ -42,3 +45,16 @@ Xee Classic keeps its settings under the same name as earlier Xee 2 versions, so
 `brew uninstall --zap --cask xee-classic` also removes those settings.
 
 Xee was released into the public domain by its author, Dag Ågren.
+
+## JankyBorders
+
+The formula is called `jankyborders`, the command it installs is `borders`. It is a fork of
+[FelixKratz/JankyBorders](https://github.com/FelixKratz/JankyBorders); upstream's
+`felixkratz/formulae/borders` installs the same command, so only one of the two can be
+installed. The formula builds from source.
+
+Run it as a login service with `brew services start metal-snake/tap/jankyborders`, then pick a
+theme from `~/.config/borders/themes` with `borders --theme <name>` (see `man borders`).
+
+JankyBorders is licensed under the
+[GPL 3.0](https://github.com/Metal-Snake/JankyBorders/blob/main/LICENSE).
